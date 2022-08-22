@@ -228,3 +228,9 @@ fabric.properties
 /web/js/
 
 # End of https://www.toptal.com/developers/gitignore/api/symfony,phpstorm,phpunit,macos
+/.idea/dataSources.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/przepisnik-api.iml
+/.idea/symfony2.xml
+/.idea/vcs.xml
