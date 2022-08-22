@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
-use OpenApi\Annotations as OA;
+use App\Exception\ObjectNotFoundException;
+use App\Helper\JsonHelper;
+use App\Service\IngredientService;
 use OpenApi\Attributes\Get;
 use OpenApi\Attributes\Response as ApiResponse;
-use OpenApi\Attributes\Tag;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 #[Route("/ingredient", name: "ingredient")]
 class IngredientController extends AbstractController
@@ -17,8 +20,12 @@ class IngredientController extends AbstractController
     #[ApiResponse(response: 400, description: "Data input error")]
     #[Get(path: '/ingredient', description: 'Show all ingredients.')]
     #[Route('/', name: 'ingredient_index', methods: 'GET')]
-    public function index(): Response
+    public function index(IngredientService $ingredientService): JsonResponse
     {
-        return new Response('Ingredients list');
+        $ingredientList = $ingredientService->index();
+
+        $json = JsonHelper::serialize($ingredientList, ['id', 'ingredient']);
+
+        return new JsonResponse($json, 200, [], true);
     }
 }

@@ -31,4 +31,21 @@ class IngredientMapper
 
         return $entity;
     }
+
+
+    /**
+     * @param IngredientEntity[] $ingredientEntities
+     * @return Ingredient[]
+     */
+    public static function mapEntitiesToModels(array $ingredientEntities): array
+    {
+        $ingredients = [];
+
+        foreach ($ingredientEntities as $ingredientEntity)
+        {
+            $ingredients[] = self::mapEntityToModel($ingredientEntity);
+        }
+
+        return $ingredients;
+    }
 }

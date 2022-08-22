@@ -6,11 +6,15 @@ namespace App\Model;
 
 use App\Traits\IdModelTrait;
 use App\Traits\TimestampModelTrait;
+use JMS\Serializer\Annotation\Groups;
 
 class Ingredient
 {
-    use TimestampModelTrait, IdModelTrait;
+    use IdModelTrait, TimestampModelTrait;
 
+    /**
+     * @Groups({"ingredient"})
+     */
     private string $name;
 
     public function __construct(string $name)

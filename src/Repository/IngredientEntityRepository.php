@@ -6,7 +6,6 @@ use App\Entity\IngredientEntity;
 use App\Exception\ObjectNotFoundException;
 use App\Repository\Interfaces\IngredientEntityRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataProvider\Interfaces;
 
+use App\Entity\IngredientEntity;
 use App\Exception\ObjectNotFoundException;
 use App\Model\Ingredient;
 
@@ -19,4 +20,7 @@ interface IngredientDataProviderInterface extends BasicDataProviderInterface
 
     /** @throws ObjectNotFoundException */
     public function removeById(int $id): void;
+
+    /** @return IngredientEntity[] */
+    public function findAll(): array;
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\DataProvider;
 
 use App\DataProvider\Interfaces\IngredientDataProviderInterface;
+use App\Entity\IngredientEntity;
 use App\Mapper\IngredientMapper;
 use App\Model\Ingredient;
 use App\Repository\Interfaces\IngredientEntityRepositoryInterface;
@@ -50,5 +51,13 @@ class IngredientDataProvider implements IngredientDataProviderInterface
     public function removeById(int $id): void
     {
         $this->ingredientEntityRepository->removeById($id);
+    }
+
+    /** @inheritdoc  */
+    public function findAll(): array
+    {
+        $ingredientEntities =  $this->ingredientEntityRepository->findAll();
+
+        return IngredientMapper::mapEntitiesToModels($ingredientEntities);
     }
 }

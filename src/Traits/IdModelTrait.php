@@ -8,6 +8,9 @@ use App\Exception\FieldNotSetException;
 
 trait IdModelTrait
 {
+    /**
+     * @JMS\Serializer\Annotation\Groups({"id"})
+     */
     private ?int $id;
 
     public function hasId(): bool

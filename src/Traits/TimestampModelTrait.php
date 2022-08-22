@@ -8,8 +8,14 @@ use DateTime;
 
 trait TimestampModelTrait
 {
+    /**
+     * @JMS\Serializer\Annotation\Groups({"timestamp"})
+     */
     private DateTime $createdAt;
 
+    /**
+     * @JMS\Serializer\Annotation\Groups({"timestamp"})
+     */
     private DateTime $updatedAt;
 
     public function getCreatedAt(): DateTime
