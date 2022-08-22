@@ -13,7 +13,6 @@ interface IngredientEntityRepositoryInterface extends BasicEntityRepositoryInter
     public function persist(IngredientEntity $ingredientEntity): void;
 
     /**
-     * @throws NonUniqueResultException
      * @throws ObjectNotFoundException
      */
     public function findOneById(int $id): IngredientEntity;
