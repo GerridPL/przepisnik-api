@@ -234,3 +234,6 @@ fabric.properties
 /.idea/przepisnik-api.iml
 /.idea/symfony2.xml
 /.idea/vcs.xml
+
+###< phpunit/phpunit ###
+/.idea/phpunit.xml

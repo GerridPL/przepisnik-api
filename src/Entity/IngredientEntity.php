@@ -20,9 +20,8 @@ class IngredientEntity
     #[ORM\Column(type: 'string', length: 100, unique: true)]
     private string $name;
 
-    public function __construct(int $id, string $name)
+    public function __construct(string $name)
     {
-        $this->id = $id;
         $this->name = $name;
     }
 
@@ -34,6 +33,11 @@ class IngredientEntity
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
     }
 
 }
