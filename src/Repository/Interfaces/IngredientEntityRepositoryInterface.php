@@ -6,7 +6,6 @@ namespace App\Repository\Interfaces;
 
 use App\Entity\IngredientEntity;
 use App\Exception\ObjectNotFoundException;
-use Doctrine\ORM\NonUniqueResultException;
 
 interface IngredientEntityRepositoryInterface extends BasicEntityRepositoryInterface
 {

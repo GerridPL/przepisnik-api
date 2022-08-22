@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\DataProvider;
 
 use App\DataProvider\Interfaces\IngredientDataProviderInterface;
-use App\Entity\IngredientEntity;
 use App\Mapper\IngredientMapper;
 use App\Model\Ingredient;
 use App\Repository\Interfaces\IngredientEntityRepositoryInterface;
