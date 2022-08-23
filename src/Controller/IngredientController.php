@@ -19,8 +19,8 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route("/api/ingredient", name: "ingredient")]
-#[Tag("Ingredient")]
+#[Route("/api/ingredients", name: "ingredients")]
+#[Tag("Ingredients")]
 class IngredientController extends AbstractController
 {
     #[ApiResponse(response: 200, description: "Success")]
