@@ -66,7 +66,7 @@ class IngredientEntityRepository extends ServiceEntityRepository implements Ingr
     /** @inheritdoc */
     public function removeById(int $id): void
     {
-        $ingredientEntity = $this->findOrFail($id);
+        $ingredientEntity = $this->findOneById($id);
 
         $this->_em->remove($ingredientEntity);
     }

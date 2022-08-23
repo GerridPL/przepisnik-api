@@ -59,4 +59,12 @@ class IngredientDataProvider implements IngredientDataProviderInterface
 
         return IngredientMapper::mapEntitiesToModels($ingredientEntities);
     }
+
+    /** @inheritdoc */
+    public function update(Ingredient $ingredient, int $id): void
+    {
+        $ingredientEntity = $this->ingredientEntityRepository->findOneById($id);
+
+        IngredientMapper::mapModelToProvidedEntity($ingredient, $ingredientEntity);
+    }
 }
