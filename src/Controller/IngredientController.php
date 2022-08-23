@@ -4,17 +4,17 @@ namespace App\Controller;
 
 use App\Helper\JsonHelper;
 use App\Service\IngredientService;
-use OpenApi\Attributes\Get;
 use OpenApi\Attributes\Response as ApiResponse;
+use OpenApi\Attributes\Tag;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route("/ingredient", name: "ingredient")]
+#[Route("/api/ingredient", name: "ingredient")]
+#[Tag("Ingredient")]
 class IngredientController extends AbstractController
 {
     #[ApiResponse(response: 200, description: "Success")]
-    #[Get(path: '/ingredient', description: 'Show all ingredients.')]
     #[Route('/', name: 'ingredient_index', methods: 'GET')]
     public function index(IngredientService $ingredientService): JsonResponse
     {
