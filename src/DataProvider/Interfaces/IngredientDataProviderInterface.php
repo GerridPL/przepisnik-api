@@ -23,4 +23,7 @@ interface IngredientDataProviderInterface extends BasicDataProviderInterface
 
     /** @return IngredientEntity[] */
     public function findAll(): array;
+
+    /** @throws ObjectNotFoundException */
+    public function update(Ingredient $ingredient, int $id): void;
 }
