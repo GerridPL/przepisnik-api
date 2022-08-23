@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: IngredientEntityRepository::class)]
 #[ORM\Table(name: 'ingredient')]
+#[ORM\HasLifecycleCallbacks]
 class IngredientEntity
 {
     use TimestampTrait;
