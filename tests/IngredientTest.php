@@ -6,24 +6,13 @@ namespace App\Tests;
 
 use App\Entity\IngredientEntity;
 use App\Exception\ObjectNotFoundException;
-use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class IngredientTest extends KernelTestCase
+class IngredientTest extends DatabaseDependantTestCase
 {
-    private EntityManager $entityManager;
-
-    protected function setUp(): void
+    /** @test */
+    public function a_ingredient_entity_record_can_be_created_in_database(): void
     {
-        $kernel = self::bootKernel();
-
-        DatabasePrimer::prime($kernel);
-
-        $this->entityManager = $kernel->getContainer()->get('doctrine')->getManager();
-    }
-
-    public function test_a_ingredient_entity_record_can_be_created_in_database(): void
-    {
+        // Setup
         $ingredientEntity = new IngredientEntity('Milk');
         $ingredientEntity->setName('Water');
         $this->entityManager->persist($ingredientEntity);
@@ -41,8 +30,10 @@ class IngredientTest extends KernelTestCase
         $this->assertNotNull($storedIngredient->getUpdatedAt());
     }
 
-    public function test_a_ingredient_entity_record_can_be_removed_from_database(): void
+    /** @test */
+    public function a_ingredient_entity_record_can_be_removed_from_database(): void
     {
+        // Setup
         $ingredientEntity = new IngredientEntity('Milk');
         $this->entityManager->persist($ingredientEntity);
 
