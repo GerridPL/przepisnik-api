@@ -21,7 +21,7 @@ class IngredientTest extends DatabaseDependantTestCase
         $ingredientDataProvider = new IngredientDataProvider($ingredientRepository);
         $ingredientService = new IngredientService($ingredientDataProvider);
 
-        $ingredientEntity = new IngredientEntity('bred');
+        $ingredientEntity = new IngredientEntity('bread');
         $ingredientEntity2 = new IngredientEntity('butter');
         $ingredientEntity3 = new IngredientEntity('water');
         $this->entityManager->persist($ingredientEntity);
@@ -33,7 +33,7 @@ class IngredientTest extends DatabaseDependantTestCase
         $ingredientModels = $ingredientService->index();
 
         // Make assertions
-        $this->assertEquals('bred', $ingredientModels[0]->getName());
+        $this->assertEquals('bread', $ingredientModels[0]->getName());
         $this->assertEquals('1', $ingredientModels[0]->getId());
         $this->assertNotNull($ingredientModels[0]->getCreatedAt());
         $this->assertNotNull($ingredientModels[0]->getUpdatedAt());
