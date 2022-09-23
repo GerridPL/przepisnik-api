@@ -237,3 +237,6 @@ fabric.properties
 
 ###< phpunit/phpunit ###
 /.idea/phpunit.xml
+/.idea/php-test-framework.xml
+/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
+/.idea/commandlinetools/Symfony_8_30_22__8_18_AM.xml

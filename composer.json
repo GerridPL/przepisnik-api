@@ -19,6 +19,7 @@
         "symfony/dotenv": "6.1.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.1.*",
+        "symfony/http-client": "6.1.*",
         "symfony/proxy-manager-bridge": "6.1.*",
         "symfony/runtime": "6.1.*",
         "symfony/validator": "6.1.*",
@@ -73,11 +74,12 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "6.1.*"
         }
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^7.1",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "6.1.*",
