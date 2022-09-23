@@ -1,5 +1,12 @@
 nelmio_api_doc:
     documentation:
+        components:
+            securitySchemes:
+                bearerAuth: # arbitrary name for the security scheme
+                    type: http
+                    in: header
+                    scheme: bearer
+                    bearerFormat: JWT
         info:
             title: Przepiśnik
             description: API for Przepiśnik 2.0.0

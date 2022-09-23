@@ -9,6 +9,9 @@ use App\Exception\RequiredFieldNotProvidedException;
 use App\Helper\JsonHelper;
 use App\Service\IngredientService;
 use FOS\RestBundle\Controller\Annotations\RequestParam;
+use OpenApi\Attributes\Delete;
+use OpenApi\Attributes\Post;
+use OpenApi\Attributes\Put;
 use OpenApi\Attributes\Response as ApiResponse;
 use OpenApi\Attributes\Tag;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,12 +22,12 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route("/api/ingredients", name: "ingredients")]
+#[Route("/api", name: "ingredients")]
 #[Tag("Ingredients")]
 class IngredientController extends AbstractController
 {
     #[ApiResponse(response: 200, description: "Success")]
-    #[Route('/', name: 'ingredient_index', methods: 'GET')]
+    #[Route('/open/ingredients/', name: 'ingredient_index', methods: 'GET')]
     public function index(IngredientService $ingredientService): JsonResponse
     {
         $ingredientList = $ingredientService->index();
@@ -37,7 +40,8 @@ class IngredientController extends AbstractController
     #[ApiResponse(response: 204, description: "Success")]
     #[ApiResponse(response: 400, description: "Data input error")]
     #[RequestParam(name: 'name', default: '')]
-    #[Route('/', name: 'ingredient_create', methods: 'POST')]
+    #[Post(security: [['bearerAuth' => []]],)]
+    #[Route('/secured/ingredients', name: 'ingredient_create', methods: 'POST')]
     public function create(Request $request, IngredientService $ingredientService): Response
     {
         try {
@@ -54,7 +58,8 @@ class IngredientController extends AbstractController
     #[ApiResponse(response: 400, description: "Data input error")]
     #[ApiResponse(response: 404, description: "Object not found")]
     #[RequestParam(name: 'name', default: '')]
-    #[Route('/{id}', name: 'ingredient_update', methods: 'PUT')]
+    #[Put(security: [['bearerAuth' => []]],)]
+    #[Route('/secured/ingredients/{id}', name: 'ingredient_update', methods: 'PUT')]
     public function update(Request $request, IngredientService $ingredientService, int $id): Response
     {
         try {
@@ -71,7 +76,8 @@ class IngredientController extends AbstractController
 
     #[ApiResponse(response: 204, description: "Success")]
     #[ApiResponse(response: 404, description: "Object not found")]
-    #[Route('/{id}', name: 'ingredient_delete', methods: 'DELETE')]
+    #[Delete(security: [['bearerAuth' => []]],)]
+    #[Route('/secured/ingredients/{id}', name: 'ingredient_delete', methods: 'DELETE')]
     public function delete(IngredientService $ingredientService, int $id): Response
     {
         try {
