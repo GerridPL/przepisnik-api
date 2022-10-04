@@ -39,6 +39,7 @@ class IngredientController extends AbstractController
 
     #[ApiResponse(response: 204, description: "Success")]
     #[ApiResponse(response: 400, description: "Data input error")]
+    #[ApiResponse(response: 401, description: "Not access")]
     #[RequestParam(name: 'name', default: '')]
     #[Post(security: [['bearerAuth' => []]],)]
     #[Route('/secured/ingredients', name: 'ingredient_create', methods: 'POST')]
@@ -56,6 +57,7 @@ class IngredientController extends AbstractController
 
     #[ApiResponse(response: 204, description: "Success")]
     #[ApiResponse(response: 400, description: "Data input error")]
+    #[ApiResponse(response: 401, description: "Not access")]
     #[ApiResponse(response: 404, description: "Object not found")]
     #[RequestParam(name: 'name', default: '')]
     #[Put(security: [['bearerAuth' => []]],)]
@@ -75,6 +77,7 @@ class IngredientController extends AbstractController
     }
 
     #[ApiResponse(response: 204, description: "Success")]
+    #[ApiResponse(response: 401, description: "Not access")]
     #[ApiResponse(response: 404, description: "Object not found")]
     #[Delete(security: [['bearerAuth' => []]],)]
     #[Route('/secured/ingredients/{id}', name: 'ingredient_delete', methods: 'DELETE')]
